@@ -17,6 +17,7 @@ int main()
     std::fstream in("in.txt");
     if (!in.is_open()) {
         std::cout << "fail <in.txt> is not open";
+        exit(0);
     }
     int *n = creat_array(in, size_n);
     int *m = creat_array(in, size_m);
@@ -25,6 +26,7 @@ int main()
     out.open("out.txt");
     if (!out.is_open()) {
         std::cout << "fail <out.txt> is not open";
+        exit(0);
     }
     out << size_m << '\n' << m[size_m - 1] << ' ';
     for (int i = 0 ; i < size_m -1; i++){
@@ -36,7 +38,8 @@ int main()
     }
     out << n[0];
     out.close();
-    delete[] n, m;
+    delete[] n;
+    delete[] m;
     return 0;
 }
 
