@@ -26,6 +26,8 @@ int main()
     out.open("out.txt");
     if (!out.is_open()) {
         std::cout << "fail <out.txt> is not open";
+        delete[] n;
+        delete[] m;
         exit(0);
     }
     out << size_m << '\n' << m[size_m - 1] << ' ';
